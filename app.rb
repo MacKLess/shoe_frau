@@ -26,3 +26,26 @@ post('/brand/add') do
   @brands = Brand.all
   erb(:index)
 end
+
+delete('/deletestore') do
+  @store = Store.find(params.fetch(:id).to_i)
+  store_ids = params.fetch('store_ids')
+  store_ids.each do |store_id|
+  checked_store = Store.find(store_id)
+  @store.destroy(checked_store)
+  end
+  @store.save
+  erb(:index)
+end
+
+get('/stores/:id') do
+  @store = Store.find(params[:id].to_i)
+  erb(:stores)
+end
+
+patch('/stores/:id/edit') do
+  @store = Store.find(params[:id].to_i)
+  @store = params.fetch('name')
+  @store.save
+  redirect '/'
+end

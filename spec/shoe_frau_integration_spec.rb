@@ -23,3 +23,12 @@ describe 'adding brands to the mainpage', {:type => :feature} do
     expect(page).to have_content('Fluevogs')
   end
 end
+
+# describe 'delete store from the store list', {:type => :feature} do
+#   it 'allows the user to remove stores from the store list' do
+#     visit('/')
+#       check('HofHoofers')
+#       click_button('Delete store')
+#       expect(page).should have_no_content('HofHoofers')
+#   end
+# end
