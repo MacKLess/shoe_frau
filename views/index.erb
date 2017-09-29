@@ -5,12 +5,18 @@
 
 <h3>Store List:</h3>
 <% if @stores.any? %>
-  <p>Here is the current list of stores. If you don't see what you're looking for here, you can add a store below. If you want to delete or edit a store from the list, click on the store name.</p>
+  <p>Here is the current list of stores. If you don't see what you're looking for here, you can add a store below. If you want to remove a store from this list, select the checkbox and hit the delete button. Finally, if you would like to edit a store name, click on the store name itself.</p>
   <% @stores.each do |store| %>
-    <ul>
-      <li><a href="/stores/<%= store.id %>"><%= store.name %></a></li>
-    </ul>
-  <% end %>
+  <form class="form-group" action="/deletestore" method="post">
+    <input type="hidden" name="_method" value="delete">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="store_ids[]" value="<%= store.id %>">
+          <a href="/stores/<%= store.id %>"><%= store.name %></a>
+        </label>
+      </div>
+    <% end %>
+  </form>
 <% else %>
   <p>We need to add stores to our database! How can anyone run a business like this!?</p>
 <% end %>
