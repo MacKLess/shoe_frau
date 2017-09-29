@@ -28,24 +28,39 @@ post('/brand/add') do
 end
 
 delete('/deletestore') do
-  @store = Store.find(params.fetch(:id).to_i)
   store_ids = params.fetch('store_ids')
   store_ids.each do |store_id|
-  checked_store = Store.find(store_id)
-  @store.destroy(checked_store)
+    checked_store = Store.find((store_id).to_i)
+    Store.all.destroy(checked_store.id)
   end
-  @store.save
+  @stores = Store.all
+  @brands = Brand.all
   erb(:index)
 end
 
 get('/stores/:id') do
   @store = Store.find(params[:id].to_i)
+  @brands = @store.brands
+  erb(:stores)
+end
+
+#this is supposed to add brands to store in a checkbox format.
+post('/stores/:id/brands') do
+  @store = Store.find(params[:id].to_i)
+  # @brands = @store.brands
+  brand_ids = params.fetch('brand_ids')
+  brand_ids.each do |brand_id|
+  checked_brand = Brand.find(brand_id)
+
+  end
+
+  @store.brands.push(@brands)
+  @store.save
   erb(:stores)
 end
 
 patch('/stores/:id/edit') do
   @store = Store.find(params[:id].to_i)
-  @store = params.fetch('name')
-  @store.save
+  @store.update({name: params['name']})
   redirect '/'
 end

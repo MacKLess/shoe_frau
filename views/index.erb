@@ -38,11 +38,11 @@
   <p>Here are the shoe brands that we supply. If you don't see what you're looking for here, you can add a shoe brand below. If you want to delete or edit a brand from the list, click on the shoe brandname.</p>
   <% @brands.each do |brand| %>
     <ul>
-      <li><a href="/brands/<%= brand.id %>"><%= brand.brandname %></a></li>
+      <li><a href="/brands/<%= brand.id %>"><%= brand.brandname %> , $<%= brand.price %></a></li>
     </ul>
   <% end %>
 <% else %>
-  <p>We need to add shoes to our database! How can we be eine Shoe Frau if we don't have any shoes!? Mein, Gott!</p>
+  <p>We don't have any brands of shoes in our catalogue! Mein Gott! How can we be eine Shoe Frau without any shoes?!!! We need to add shoes below.</p></p>
 <% end %>
 
 <h4>Add Brands</h4>
