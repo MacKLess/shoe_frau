@@ -15,6 +15,15 @@
   <p>We need to add stores to our database! How can anyone run a business like this!?</p>
 <% end %>
 
+<h4>Add Stores</h4>
+<form action="/" method="post">
+  <div class="form-group">
+    <label for="name">Store Name:</label>
+    <input type="text" name="name" class="form-control">
+  </div>
+  <button type="submit" class="btn">Add store!</button>
+</form>
+
 <h3>List of Shoe Brands:</h3>
 <% if @brands.any? %>
   <p>Here are the shoe brands that we supply. If you don't see what you're looking for here, you can add a shoe brand below. If you want to delete or edit a brand from the list, click on the shoe brandname.</p>
@@ -26,3 +35,16 @@
 <% else %>
   <p>We need to add shoes to our database! How can we be eine Shoe Frau if we don't have any shoes!? Mein, Gott!</p>
 <% end %>
+
+<h4>Add Brands</h4>
+<form action="/brand/add" method="post">
+  <div class="form-group">
+    <label for="brandname">Name of brand:</label>
+    <input type="text" name="brandname" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="price">Average cost of brand:</label>
+    <input type="text" name="price" class="form-control">
+  </div>
+  <button type="submit" class="btn">Add brand!</button>
+</form>
