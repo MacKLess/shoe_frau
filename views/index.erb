@@ -1,0 +1,28 @@
+<h1>Hello, I'm Shoe Frau!</h1>
+<p>
+  Allow me to assist you with all of your shoe supply needs. We pride ourselves in putting the soul back into your soles, but in a very Prussian manner!
+</p>
+
+<h3>Store List:</h3>
+<% if @stores.any? %>
+  <p>Here is the current list of stores. If you don't see what you're looking for here, you can add a store below. If you want to delete or edit a store from the list, click on the store name.</p>
+  <% @stores.each do |store| %>
+    <ul>
+      <li><a href="/stores/<%= store.id %>"><%= store.name %></a></li>
+    </ul>
+  <% end %>
+<% else %>
+  <p>We need to add stores to our database! How can anyone run a business like this!?</p>
+<% end %>
+
+<h3>List of Shoe Brands:</h3>
+<% if @brands.any? %>
+  <p>Here are the shoe brands that we supply. If you don't see what you're looking for here, you can add a shoe brand below. If you want to delete or edit a brand from the list, click on the shoe brandname.</p>
+  <% @brands.each do |brand| %>
+    <ul>
+      <li><a href="/brands/<%= brand.id %>"><%= brand.brandname %></a></li>
+    </ul>
+  <% end %>
+<% else %>
+  <p>We need to add shoes to our database! How can we be eine Shoe Frau if we don't have any shoes!? Mein, Gott!</p>
+<% end %>
