@@ -1,6 +1,6 @@
 <h1><%= @store.name %></h1>
 
-<h3>Edit Store Name:</h3>
+<h4>Edit Store Name:</h4>
 
 <form action="/stores/<%= @store.id %>/edit" method="post">
   <input type="hidden" name="_method" value="patch">
@@ -11,7 +11,7 @@
   <button type="submit" class="btn">Change</button>
 </form>
 
-<h2>Shoe Brands at <%= @store.name %>:</h2>
+<h3>Shoe Brands at <%= @store.name %>:</h3>
 <% if @store.brands.any? %>
   <p>Here are the current brands carried in this store. If you would like to add a shoe brand to this list, you can do so below.</p>
   <% @brands.each do |brand| %>
@@ -22,18 +22,17 @@
 <% else %>
   <p>Are you sure this is a shoe store? There aren't any shoe brands carried by this store yet. You should add some from this list:
 <% end %>
-  
-<% @brands.each do |brand| %>
-  <form class="form-group" action="/stores/<%= @store.id %>/brands" method="post">
+
+<h4>Shoe Brands that you can add:</h4>
+
+<form class="form-group" action="/stores/<%= @store.id %>/brands" method="post">
+  <% @brands.each do |brand| %>
     <div class="checkbox">
       <label>
         <input type="checkbox" name="brand_ids[]" value="<%= brand.id %>">
-          <%= brand.name %>, $<%= brand.price %>
+          <%= brand.brandname %>, $<%= brand.price %>
       </label>
     </div>
-  </form>
-<% end %>
-
-
-
-<% end %>
+  <% end %>
+  <button type="submit" class="btn">Add brands!</button>
+</form>

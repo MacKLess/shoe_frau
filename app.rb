@@ -40,7 +40,7 @@ end
 
 get('/stores/:id') do
   @store = Store.find(params[:id].to_i)
-  @brands = @store.brands
+  @brands = Brand.all
   erb(:stores)
 end
 
@@ -50,12 +50,11 @@ post('/stores/:id/brands') do
   # @brands = @store.brands
   brand_ids = params.fetch('brand_ids')
   brand_ids.each do |brand_id|
-  checked_brand = Brand.find(brand_id)
-
+    checked_brand = Brand.find(brand_id)
+    @store.brands.push(checked_brand)
   end
-
-  @store.brands.push(@brands)
-  @store.save
+    @store.save
+    @brands = Brand.all
   erb(:stores)
 end
 
