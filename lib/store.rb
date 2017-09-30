@@ -6,4 +6,10 @@ class Store < ActiveRecord::Base
     :uniqueness => { case_sensitive: false},
     :length => { :maximum => 100 }
     })
+
+  before_save(:capitalize)
+
+  def capitalize
+    self.name=(name.capitalize)
+  end
 end

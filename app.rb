@@ -11,7 +11,7 @@ get('/') do
 end
 
 post('/') do
-  name = params.fetch("name").capitalize
+  name = params.fetch("name")
   store = Store.create({:name => name})
   @stores = Store.all
   @brands = Brand.all
@@ -19,7 +19,7 @@ post('/') do
 end
 
 post('/brand/add') do
-  brandname = params.fetch("brandname").capitalize
+  brandname = params.fetch("brandname")
   price = params.fetch("price")
   brand = Brand.create({:brandname => brandname, :price => price})
   @stores = Store.all
@@ -60,7 +60,7 @@ end
 
 patch('/stores/:id/edit') do
   @store = Store.find(params[:id].to_i)
-  @store.update({name: params['name'].capitalize})
+  @store.update({name: params['name']})
   @brands = Brand.all
   erb(:stores)
 end
