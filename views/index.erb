@@ -38,7 +38,7 @@
   <p>Here are the shoe brands that we supply. If you don't see what you're looking for here, you can add a shoe brand below. If you want to delete or edit a brand from the list, click on the shoe brandname.</p>
   <% @brands.each do |brand| %>
     <ul>
-      <li><a href="/brands/<%= brand.id %>"><%= brand.brandname %> , $<%= '%.02f' % brand.price %></a></li>
+      <li><%= brand.brandname %> , $<%= '%.02f' % brand.price %></li>
     </ul>
   <% end %>
 <% else %>

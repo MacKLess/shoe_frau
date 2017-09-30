@@ -14,9 +14,9 @@
 <h3>Shoe Brands at <%= @store.name %>:</h3>
 <% if @store.brands.any? %>
   <p>Here are the current brands carried in this store. If you would like to add a shoe brand to this list, you can do so below.</p>
-  <% @brands.each do |brand| %>
+  <% @store.brands.each do |brand| %>
     <ul>
-      <li><a href="/brands/<%= brand.id %>"><%= brand.brandname %> , $<%= brand.price %></a></li>
+      <li><%= brand.brandname %> , $<%= '%.02f' % brand.price %></li>
     </ul>
   <% end %>
 <% else %>

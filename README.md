@@ -34,6 +34,10 @@ _An app for a shoe distribution company that allows the user to track shoe brand
 * _User cannot enter a store or brand into the database more than once._
 * _User can limit store and brand names to a maximum of one hundred characters._
 
+## Bugs
+
+_The app is flawed in that when you try to add shoe brands to a given store, it adds all the shoe brands instead of just the selected brands._
+
 ## Support and contact details
 
 _Please contact [ldmackrell@gmail.com](mailto:ldmackrell@gmail.com) with questions, comments, or issues, or if you would like to contribute to the code._
