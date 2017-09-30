@@ -11,7 +11,7 @@ get('/') do
 end
 
 post('/') do
-  name = params.fetch("name")
+  name = params.fetch("name").capitalize
   store = Store.create({:name => name})
   @stores = Store.all
   @brands = Brand.all
@@ -19,7 +19,7 @@ post('/') do
 end
 
 post('/brand/add') do
-  brandname = params.fetch("brandname")
+  brandname = params.fetch("brandname").capitalize
   price = params.fetch("price")
   brand = Brand.create({:brandname => brandname, :price => price})
   @stores = Store.all
@@ -47,19 +47,20 @@ end
 #this is supposed to add brands to store in a checkbox format.
 post('/stores/:id/brands') do
   @store = Store.find(params[:id].to_i)
-  # @brands = @store.brands
   brand_ids = params.fetch('brand_ids')
   brand_ids.each do |brand_id|
     checked_brand = Brand.find(brand_id)
     @store.brands.push(checked_brand)
   end
     @store.save
+    @store.brands
     @brands = Brand.all
   erb(:stores)
 end
 
 patch('/stores/:id/edit') do
   @store = Store.find(params[:id].to_i)
-  @store.update({name: params['name']})
-  redirect '/'
+  @store.update({name: params['name'].capitalize})
+  @brands = Brand.all
+  erb(:stores)
 end

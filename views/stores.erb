@@ -30,7 +30,7 @@
     <div class="checkbox">
       <label>
         <input type="checkbox" name="brand_ids[]" value="<%= brand.id %>">
-          <%= brand.brandname %>, $<%= brand.price %>
+          <%= brand.brandname %>, $<%= '%.02f' % brand.price %>
       </label>
     </div>
   <% end %>
