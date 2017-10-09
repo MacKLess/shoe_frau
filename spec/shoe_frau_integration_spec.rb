@@ -27,8 +27,10 @@ end
 describe 'delete store from the store list', {:type => :feature} do
   it 'allows the user to remove stores from the store list' do
     visit('/')
-      check('Vibrams')
-      click_button('Delete store')
-      expect(page).should have_no_content('Vibrams')
+    fill_in('name', :with => 'Vibrams')
+    click_button('Add store!')
+    check('Vibrams')
+    click_button('Delete store')
+    expect(page).to have_no_content('Vibrams')
   end
 end

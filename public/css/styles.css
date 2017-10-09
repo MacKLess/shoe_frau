@@ -1,0 +1,11 @@
+.container {
+  background-image: url("/img/background.jpg");
+  color: #fff;
+
+}
+
+#mainpage {
+  margin-right: auto;
+  margin-left: auto;
+  color: #a94442;
+}
