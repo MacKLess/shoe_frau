@@ -1,11 +1,48 @@
-.container {
+body {
   background-image: url("/img/background.jpg");
-  color: #fff;
-
 }
 
-#mainpage {
+.container {
+  background-color: #fff;
+  padding-bottom: 3rem;
+  border-radius: 1rem;
+}
+
+.mainpage {
+  color: #fff !important;
+  font-size: 24px;
+  text-align: center;
+  margin: 3rem;
+}
+
+h1 {
+  color: #0e0553;
+  text-align: center;
+}
+
+img {
   margin-right: auto;
   margin-left: auto;
-  color: #a94442;
+  width: 50%;
+  height: auto;
+  float: right;
+  border-radius: 9rem;
+  margin: 1rem;
+}
+
+#intro {
+  font-size: 18px;
+  font-style: italic;
+  padding-top: 3rem;
+}
+form {
+  width: 40%;
+}
+
+.mainpage a {
+  color: #fff;
+}
+
+a {
+  color: #5d120d;
 }

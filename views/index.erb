@@ -1,7 +1,8 @@
 <h1>Moin, Mien Naam is Shoe Frau!</h1>
-<p>
-  Allow me to assist you with all of your shoe supply needs. We pride ourselves in putting the soul back into your soles, in the strictist Prussian manner!
-</p>
+<img src="/img/frau.jpg" alt="A painting of a seated woman in prussian military garb from the waist up." />
+<br>
+<p id="intro"><blockquote>Allow me to assist you with all of your shoe supply needs. We pride ourselves in putting the soul back into your soles, in the strictist Prussian manner!</blockquote></p>
+<br><br>
 
 <h3>Store List:</h3>
 <% if @stores.any? %>
@@ -32,8 +33,9 @@
   </div>
   <button type="submit" class="btn">Add store!</button>
 </form>
-
+<br><br>
 <h3>List of Shoe Brands:</h3>
+<img src="/img/shoe.jpg" alt="black low boot with intricate silver buckles" />
 <% if @brands.any? %>
   <p>Here are the shoe brands that we supply. If you don't see what you're looking for here, you can add a shoe brand below. If you want to delete or edit a brand from the list, click on the shoe brandname.</p>
   <% @brands.each do |brand| %>
