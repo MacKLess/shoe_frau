@@ -10,6 +10,6 @@ class Store < ActiveRecord::Base
   before_save(:capitalize)
 
   def capitalize
-    self.name=(name.capitalize)
+    self.name=(name.titleize)
   end
 end

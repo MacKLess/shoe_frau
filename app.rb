@@ -10,7 +10,7 @@ get('/') do
   erb(:index)
 end
 
-post('/') do
+post('/store/add') do
   name = params.fetch("name")
   store = Store.create({:name => name})
   @stores = Store.all
